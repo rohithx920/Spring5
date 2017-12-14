@@ -2,6 +2,7 @@ package guru.springframework.spring5webapp.model;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -17,6 +18,7 @@ import java.util.Set;
 @Setter
 @Entity
 @ToString
+@NoArgsConstructor
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
