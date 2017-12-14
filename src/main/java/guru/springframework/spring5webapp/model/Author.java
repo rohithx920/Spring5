@@ -23,13 +23,13 @@ public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String fistname;
+    private String firstname;
     private String lastname;
     @ManyToMany(mappedBy = "authors")
     Set<Book> books=new HashSet<>();
 
-    public Author(String fistname, String lastname) {
-        this.fistname = fistname;
+    public Author(String firstname, String lastname) {
+        this.firstname = firstname;
         this.lastname = lastname;
     }
 }
