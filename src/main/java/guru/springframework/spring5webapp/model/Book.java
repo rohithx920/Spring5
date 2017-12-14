@@ -13,13 +13,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import java.util.HashSet;
 import java.util.Set;
 
 @Getter
 @Setter
 @Entity
-@EqualsAndHashCode
 @ToString
 public class Book {
     @Id
@@ -27,8 +27,16 @@ public class Book {
     private Long id;
     String title;
     String isbn;
-    String publisher;
+    @OneToOne
+    Publisher publisher;
     @ManyToMany
     @JoinTable(name = "author_book",joinColumns=@JoinColumn(name="book_id"),inverseJoinColumns = @JoinColumn(name="author_id"))
     Set<Author> authors=new HashSet<Author>();
+
+
+    public Book(String title, String isbn, Publisher publisher) {
+        this.title = title;
+        this.isbn = isbn;
+        this.publisher=publisher;
+    }
 }
